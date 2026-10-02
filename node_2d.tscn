@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bd7qkk0tn2iu1"]
+
+[ext_resource type="Script" uid="uid://hh3p4ue7ntgf" path="res://player.gd" id="1_0hol4"]
+[ext_resource type="Texture2D" uid="uid://dl5disilhtrjw" path="res://sprites/player_ph.png" id="1_epypp"]
+[ext_resource type="Script" uid="uid://b6owiehmaqjul" path="res://rigid_body_2d_2.gd" id="1_wtcfe"]
+[ext_resource type="PackedScene" uid="uid://dj7e461jnc03y" path="res://projectile.tscn" id="2_0e48y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
+size = Vector2(105.74582, 55.019566)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mp8ig"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mp8ig"]
+radius = 25.807
+
+[sub_resource type="DrawableTexture2D" id="DrawableTexture2D_omhfi"]
+
+[node name="Node2D" type="Node2D" unique_id=1542289864]
+position = Vector2(479, 135)
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1406529884 groups=["player"]]
+position = Vector2(-117, -4.00001)
+rotation = 0.92968345
+scale = Vector2(0.9999998, 0.9999998)
+collision_mask = 4
+script = ExtResource("1_0hol4")
+bullet = ExtResource("2_0e48y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=810030116]
+position = Vector2(2.2009583, 0.3947296)
+rotation = 0.6457717
+scale = Vector2(1.0000001, 1.0000001)
+shape = SubResource("RectangleShape2D_0e48y")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Player" unique_id=1523025114]
+position = Vector2(0.20333862, 1.3995361)
+rotation = -0.92327917
+scale = Vector2(0.21130231, 0.21130231)
+texture = ExtResource("1_epypp")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="." unique_id=1358523034]
+position = Vector2(-290, -1.000007)
+rotation = 0.9296834
+scale = Vector2(0.9999998, 0.9999998)
+collision_layer = 4
+collision_mask = 0
+mass = 0.025
+physics_material_override = SubResource("PhysicsMaterial_mp8ig")
+gravity_scale = 0.0
+linear_velocity = Vector2(-50, 0)
+angular_velocity = 0.017453292
+script = ExtResource("1_wtcfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2" unique_id=1755368523]
+position = Vector2(-0.5980911, 0.8014374)
+shape = SubResource("CircleShape2D_mp8ig")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2" unique_id=144795831]
+position = Vector2(-1.3995146, 0.20334525)
+texture = SubResource("DrawableTexture2D_omhfi")
