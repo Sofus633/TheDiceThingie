@@ -2,18 +2,13 @@
 
 [ext_resource type="Script" uid="uid://hh3p4ue7ntgf" path="res://player.gd" id="1_0hol4"]
 [ext_resource type="Texture2D" uid="uid://dl5disilhtrjw" path="res://sprites/player_ph.png" id="1_epypp"]
+[ext_resource type="Script" uid="uid://bnkd1or162o0c" path="res://node_2d.gd" id="1_kdubu"]
 [ext_resource type="Script" uid="uid://b6owiehmaqjul" path="res://rigid_body_2d_2.gd" id="1_wtcfe"]
 [ext_resource type="PackedScene" uid="uid://dj7e461jnc03y" path="res://projectile.tscn" id="2_0e48y"]
+[ext_resource type="Script" uid="uid://sd2g1u5m62jl" path="res://exit_room_1.gd" id="5_q6r6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(105.74582, 55.019566)
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mp8ig"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_mp8ig"]
-radius = 25.807
-
-[sub_resource type="DrawableTexture2D" id="DrawableTexture2D_omhfi"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0hol4"]
 
@@ -26,11 +21,22 @@ size = Vector2(1155, 85)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0wj5"]
 size = Vector2(85, 647.75)
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mp8ig"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mp8ig"]
+radius = 25.807
+
+[sub_resource type="DrawableTexture2D" id="DrawableTexture2D_omhfi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(225.5, 31)
+
 [node name="Node2D" type="Node2D" unique_id=1542289864]
-position = Vector2(498, 229)
+position = Vector2(509, 233)
+script = ExtResource("1_kdubu")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1406529884 groups=["player"]]
-position = Vector2(-122, 5.0000052)
+position = Vector2(44, 99.000015)
 rotation = 0.92968345
 scale = Vector2(0.9999998, 0.9999998)
 script = ExtResource("1_0hol4")
@@ -43,14 +49,37 @@ scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_0e48y")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Player" unique_id=1523025114]
-position = Vector2(-2.009521, -3.9952097)
+position = Vector2(-6.4114532, -4.784729)
 rotation = -0.92327917
 scale = Vector2(0.21130231, 0.21130231)
 texture = ExtResource("1_epypp")
 
-[node name="RigidBody2D2" type="RigidBody2D" parent="." unique_id=1358523034]
-position = Vector2(-290, -1.000007)
-rotation = 0.9296834
+[node name="ROOM_1" type="Node2D" parent="." unique_id=1456977001]
+position = Vector2(31, -1)
+
+[node name="BORDER_START" type="StaticBody2D" parent="ROOM_1" unique_id=2147226401]
+physics_material_override = SubResource("PhysicsMaterial_0hol4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ROOM_1/BORDER_START" unique_id=359927533]
+visibility_layer = 5
+position = Vector2(41, -289)
+shape = SubResource("RectangleShape2D_k1q5d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ROOM_1/BORDER_START" unique_id=680711075]
+position = Vector2(45, 456)
+shape = SubResource("RectangleShape2D_ecept")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ROOM_1/BORDER_START" unique_id=1237168035]
+position = Vector2(657, 87)
+shape = SubResource("RectangleShape2D_w0wj5")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ROOM_1/BORDER_START" unique_id=477759276]
+position = Vector2(-575, 94)
+shape = SubResource("RectangleShape2D_w0wj5")
+
+[node name="TEST_1" type="RigidBody2D" parent="ROOM_1" unique_id=1358523034]
+position = Vector2(-324, -3)
+rotation = 0.92968345
 scale = Vector2(0.9999998, 0.9999998)
 collision_layer = 4
 collision_mask = 0
@@ -61,31 +90,59 @@ linear_velocity = Vector2(-50, 0)
 angular_velocity = 0.017453292
 script = ExtResource("1_wtcfe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2" unique_id=1755368523]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ROOM_1/TEST_1" unique_id=1755368523]
 position = Vector2(-0.5980911, 0.8014374)
 shape = SubResource("CircleShape2D_mp8ig")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2" unique_id=144795831]
+[node name="Sprite2D" type="Sprite2D" parent="ROOM_1/TEST_1" unique_id=144795831]
 position = Vector2(-1.6147985, -6.1961603)
 texture = SubResource("DrawableTexture2D_omhfi")
 
-[node name="BORDER_START" type="StaticBody2D" parent="." unique_id=2147226401]
-position = Vector2(36, 6)
+[node name="EXIT_ROOM1" type="Area2D" parent="ROOM_1" unique_id=327061362]
+script = ExtResource("5_q6r6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ROOM_1/EXIT_ROOM1" unique_id=1314684262]
+position = Vector2(52, -222)
+shape = SubResource("RectangleShape2D_0hol4")
+
+[node name="CAM_1" type="Camera2D" parent="ROOM_1" unique_id=369957442]
+position = Vector2(49, 91)
+
+[node name="SpawnPoint_1" type="Marker2D" parent="ROOM_1" unique_id=550221429]
+position = Vector2(53, -182)
+
+[node name="SpawnPoint" type="Marker2D" parent="ROOM_1" unique_id=2120379475]
+position = Vector2(59, 78)
+
+[node name="ROOM_2" type="Node2D" parent="." unique_id=767473334]
+position = Vector2(0, -856)
+
+[node name="SpawnPoint_2" type="Marker2D" parent="ROOM_2" unique_id=1830598033]
+position = Vector2(80, 372)
+
+[node name="BORDER_START2" type="StaticBody2D" parent="ROOM_2" unique_id=1139216065]
+position = Vector2(31, -1)
 physics_material_override = SubResource("PhysicsMaterial_0hol4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BORDER_START" unique_id=359927533]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ROOM_2/BORDER_START2" unique_id=1798228727]
 visibility_layer = 5
 position = Vector2(41, -289)
 shape = SubResource("RectangleShape2D_k1q5d")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="BORDER_START" unique_id=680711075]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ROOM_2/BORDER_START2" unique_id=281760169]
 position = Vector2(45, 456)
 shape = SubResource("RectangleShape2D_ecept")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="BORDER_START" unique_id=1237168035]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ROOM_2/BORDER_START2" unique_id=1329272694]
 position = Vector2(657, 87)
 shape = SubResource("RectangleShape2D_w0wj5")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="BORDER_START" unique_id=477759276]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ROOM_2/BORDER_START2" unique_id=989018591]
 position = Vector2(-575, 94)
 shape = SubResource("RectangleShape2D_w0wj5")
+
+[node name="CAM_2" type="Camera2D" parent="ROOM_2" unique_id=1452855018]
+position = Vector2(70, 86)
+enabled = false
+
+[connection signal="body_entered" from="ROOM_1/EXIT_ROOM1" to="." method="_on_exit_room_1_body_entered"]
