@@ -24,7 +24,7 @@ size = Vector2(85, 647.75)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mp8ig"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mp8ig"]
-radius = 25.807
+radius = 29.206165
 
 [sub_resource type="DrawableTexture2D" id="DrawableTexture2D_omhfi"]
 
@@ -81,8 +81,7 @@ shape = SubResource("RectangleShape2D_w0wj5")
 position = Vector2(-324, -3)
 rotation = 0.92968345
 scale = Vector2(0.9999998, 0.9999998)
-collision_layer = 4
-collision_mask = 0
+collision_layer = 5
 mass = 0.025
 physics_material_override = SubResource("PhysicsMaterial_mp8ig")
 gravity_scale = 0.0

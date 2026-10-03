@@ -50,7 +50,7 @@ func shoot() -> void:
 	sprite.name = "Projectile"
 	sprite.texture = load("res://sprites/Désprite_ph.png")
 	b.add_child(sprite)
-	add_child(b)
+	get_parent().current_room.add_child(b)
 	b.top_level = true
 	b.global_position = muzzle_position()
 	b.global_rotation = aim_direction().angle()
