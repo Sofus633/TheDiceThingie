@@ -15,14 +15,24 @@ radius = 25.807
 
 [sub_resource type="DrawableTexture2D" id="DrawableTexture2D_omhfi"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0hol4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1q5d"]
+size = Vector2(1152, 109.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ecept"]
+size = Vector2(1155, 85)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w0wj5"]
+size = Vector2(85, 647.75)
+
 [node name="Node2D" type="Node2D" unique_id=1542289864]
-position = Vector2(479, 135)
+position = Vector2(498, 229)
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1406529884 groups=["player"]]
-position = Vector2(-117, -4.00001)
+position = Vector2(-122, 5.0000052)
 rotation = 0.92968345
 scale = Vector2(0.9999998, 0.9999998)
-collision_mask = 4
 script = ExtResource("1_0hol4")
 bullet = ExtResource("2_0e48y")
 
@@ -33,7 +43,7 @@ scale = Vector2(1.0000001, 1.0000001)
 shape = SubResource("RectangleShape2D_0e48y")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Player" unique_id=1523025114]
-position = Vector2(0.20333862, 1.3995361)
+position = Vector2(-2.009521, -3.9952097)
 rotation = -0.92327917
 scale = Vector2(0.21130231, 0.21130231)
 texture = ExtResource("1_epypp")
@@ -56,5 +66,26 @@ position = Vector2(-0.5980911, 0.8014374)
 shape = SubResource("CircleShape2D_mp8ig")
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2" unique_id=144795831]
-position = Vector2(-1.3995146, 0.20334525)
+position = Vector2(-1.6147985, -6.1961603)
 texture = SubResource("DrawableTexture2D_omhfi")
+
+[node name="BORDER_START" type="StaticBody2D" parent="." unique_id=2147226401]
+position = Vector2(36, 6)
+physics_material_override = SubResource("PhysicsMaterial_0hol4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BORDER_START" unique_id=359927533]
+visibility_layer = 5
+position = Vector2(41, -289)
+shape = SubResource("RectangleShape2D_k1q5d")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BORDER_START" unique_id=680711075]
+position = Vector2(45, 456)
+shape = SubResource("RectangleShape2D_ecept")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="BORDER_START" unique_id=1237168035]
+position = Vector2(657, 87)
+shape = SubResource("RectangleShape2D_w0wj5")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="BORDER_START" unique_id=477759276]
+position = Vector2(-575, 94)
+shape = SubResource("RectangleShape2D_w0wj5")
