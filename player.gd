@@ -46,6 +46,10 @@ func shoot() -> void:
 	if bullet == null:
 		return
 	var b := bullet.instantiate()
+	var sprite := Sprite2D.new()
+	sprite.name = "Projectile"
+	sprite.texture = load("res://sprites/Désprite_ph.png")
+	b.add_child(sprite)
 	add_child(b)
 	b.top_level = true
 	b.global_position = muzzle_position()
