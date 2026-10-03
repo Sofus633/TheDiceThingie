@@ -45,13 +45,21 @@ func muzzle_position() -> Vector2:
 func shoot() -> void:
 	if bullet == null:
 		return
+
 	var b := bullet.instantiate()
+
 	var sprite := Sprite2D.new()
 	sprite.name = "Projectile"
 	sprite.texture = load("res://sprites/Désprite_ph.png")
 	b.add_child(sprite)
-	get_parent().current_room.add_child(b)
+
 	b.top_level = true
 	b.global_position = muzzle_position()
 	b.global_rotation = aim_direction().angle()
+
+	get_parent().current_room.add_child(b)
+
+	var room = get_parent().current_room
+	room.add_child(b)
+
 	cooldown_left = fire_cooldown

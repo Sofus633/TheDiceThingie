@@ -104,7 +104,7 @@ script = ExtResource("5_q6r6c")
 position = Vector2(52, -222)
 shape = SubResource("RectangleShape2D_0hol4")
 
-[node name="CAM_1" type="Camera2D" parent="ROOM_1" unique_id=369957442]
+[node name="Camera" type="Camera2D" parent="ROOM_1" unique_id=369957442]
 position = Vector2(49, 91)
 
 [node name="SpawnPoint_1" type="Marker2D" parent="ROOM_1" unique_id=550221429]
@@ -140,7 +140,7 @@ shape = SubResource("RectangleShape2D_w0wj5")
 position = Vector2(-575, 94)
 shape = SubResource("RectangleShape2D_w0wj5")
 
-[node name="CAM_2" type="Camera2D" parent="ROOM_2" unique_id=1452855018]
+[node name="Camera" type="Camera2D" parent="ROOM_2" unique_id=1452855018]
 position = Vector2(70, 86)
 enabled = false
 

@@ -8,6 +8,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if health <= 0:
+		get_tree().current_scene.current_room_complete = true
 		queue_free()
 
 func take_damage(damage: int) -> void:

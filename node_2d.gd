@@ -1,6 +1,7 @@
 extends Node2D
 
 var current_room = Node2D
+var current_room_complete = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_room = $ROOM_1
@@ -13,11 +14,12 @@ func _process(delta: float) -> void:
 
 
 func _on_exit_room_1_body_entered(body: Node2D) -> void:
-	if body != $Player:
+	if body != $Player or !current_room_complete:
 		return
 
 	current_room = $ROOM_2
+	current_room_complete = false
 	body.global_position = $ROOM_2/SpawnPoint_2.global_position
 
-	$ROOM_1/CAM_1.enabled = false
-	$ROOM_2/CAM_2.enabled = true
+	$ROOM_1/Camera.enabled = false
+	$ROOM_2/Camera.enabled = true
