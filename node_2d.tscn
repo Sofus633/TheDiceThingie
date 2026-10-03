@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://bnkd1or162o0c" path="res://node_2d.gd" id="1_kdubu"]
 [ext_resource type="Script" uid="uid://b6owiehmaqjul" path="res://rigid_body_2d_2.gd" id="1_wtcfe"]
 [ext_resource type="PackedScene" uid="uid://dj7e461jnc03y" path="res://projectile.tscn" id="2_0e48y"]
+[ext_resource type="Texture2D" uid="uid://bnpxhkygrl2dl" path="res://sprites/ROOM_1.png" id="5_d21ai"]
 [ext_resource type="Script" uid="uid://sd2g1u5m62jl" path="res://exit_room_1.gd" id="5_q6r6c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
@@ -29,7 +30,7 @@ radius = 29.206165
 [sub_resource type="DrawableTexture2D" id="DrawableTexture2D_omhfi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
-size = Vector2(225.5, 31)
+size = Vector2(158.75, 42.5)
 
 [node name="Node2D" type="Node2D" unique_id=1542289864]
 position = Vector2(509, 233)
@@ -55,7 +56,13 @@ scale = Vector2(0.21130231, 0.21130231)
 texture = ExtResource("1_epypp")
 
 [node name="ROOM_1" type="Node2D" parent="." unique_id=1456977001]
+z_index = -10
 position = Vector2(31, -1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ROOM_1" unique_id=1717713061]
+position = Vector2(41.562435, 98.499985)
+scale = Vector2(7.307031, 7.3)
+texture = ExtResource("5_d21ai")
 
 [node name="BORDER_START" type="StaticBody2D" parent="ROOM_1" unique_id=2147226401]
 physics_material_override = SubResource("PhysicsMaterial_0hol4")
@@ -101,11 +108,11 @@ texture = SubResource("DrawableTexture2D_omhfi")
 script = ExtResource("5_q6r6c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ROOM_1/EXIT_ROOM1" unique_id=1314684262]
-position = Vector2(52, -222)
+position = Vector2(-5.375, -211.25)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="Camera" type="Camera2D" parent="ROOM_1" unique_id=369957442]
-position = Vector2(49, 91)
+position = Vector2(43, 96)
 
 [node name="SpawnPoint_1" type="Marker2D" parent="ROOM_1" unique_id=550221429]
 position = Vector2(53, -182)
