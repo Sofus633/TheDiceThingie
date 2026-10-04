@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 
 
 func _on_exit_room_1_body_entered(body: Node2D) -> void:
-	if body != $Player or !current_room_complete:
+	if body != $Player or current_room.ennemy_count != 0:
 		return
 
 	current_room = $ROOM_2

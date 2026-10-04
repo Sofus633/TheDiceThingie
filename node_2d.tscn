@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dj7e461jnc03y" path="res://projectile.tscn" id="2_0e48y"]
 [ext_resource type="Texture2D" uid="uid://bnpxhkygrl2dl" path="res://sprites/ROOM_1.png" id="5_d21ai"]
 [ext_resource type="Script" uid="uid://sd2g1u5m62jl" path="res://exit_room_1.gd" id="5_q6r6c"]
+[ext_resource type="Script" uid="uid://s41rq2uc2g3u" path="res://room_1.gd" id="5_rj586"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(105.74582, 55.019566)
@@ -58,6 +59,7 @@ texture = ExtResource("1_epypp")
 [node name="ROOM_1" type="Node2D" parent="." unique_id=1456977001]
 z_index = -10
 position = Vector2(31, -1)
+script = ExtResource("5_rj586")
 
 [node name="Sprite2D" type="Sprite2D" parent="ROOM_1" unique_id=1717713061]
 position = Vector2(41.562435, 98.499985)
@@ -101,6 +103,26 @@ position = Vector2(-0.5980911, 0.8014374)
 shape = SubResource("CircleShape2D_mp8ig")
 
 [node name="Sprite2D" type="Sprite2D" parent="ROOM_1/TEST_1" unique_id=144795831]
+position = Vector2(-1.6147985, -6.1961603)
+texture = SubResource("DrawableTexture2D_omhfi")
+
+[node name="TEST_2" type="RigidBody2D" parent="ROOM_1" unique_id=100673500]
+position = Vector2(332, 294.00003)
+rotation = 0.92968345
+scale = Vector2(0.9999998, 0.9999998)
+collision_layer = 5
+mass = 0.025
+physics_material_override = SubResource("PhysicsMaterial_mp8ig")
+gravity_scale = 0.0
+linear_velocity = Vector2(-50, 0)
+angular_velocity = 0.017453292
+script = ExtResource("1_wtcfe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ROOM_1/TEST_2" unique_id=1550314400]
+position = Vector2(-0.5980911, 0.8014374)
+shape = SubResource("CircleShape2D_mp8ig")
+
+[node name="Sprite2D" type="Sprite2D" parent="ROOM_1/TEST_2" unique_id=716795314]
 position = Vector2(-1.6147985, -6.1961603)
 texture = SubResource("DrawableTexture2D_omhfi")
 
